@@ -84,9 +84,7 @@
                 }
 
                 start_date = formatForBackend($('#start_date').val());
-                end_date = formatForBackend($('#end_date').val());
-
-                
+                end_date = formatForBackend($('#end_date').val());                
 
                 var url = "/" + start_date + "/" + end_date;
 
@@ -109,13 +107,16 @@
 
                 var no_error = true;
 
-                if (start_date.length === 0) {
+                console.log(start_date.length);
+                console.log(start_date);
+
+                if (start_date.length != 10|| start_date.includes('d') || start_date.includes('m') || start_date.includes('y')) {
                     error_html.show();
                     error_html.append("<div>Start Date is required.</div>");
                     no_error = false;
                 } 
 
-                if (end_date.length === 0) {
+                if (end_date.length != 10 || end_date.includes('d') || end_date.includes('m') || end_date.includes('y')) {
                     error_html.show();
                     error_html.append("<div>End Date is required.</div>");
                     no_error = false;
